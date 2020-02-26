@@ -58,7 +58,7 @@ function ConnectTwitchChat() {
         isConnected = true;
         connectedChannel = channel;
         document.getElementById("theWord").innerHTML = "connected";
-        console.log("connected boy updated");
+        console.log("connected boy updated2");
        // NextRound();
       }).catch(function(err) {
         console.log(err);
