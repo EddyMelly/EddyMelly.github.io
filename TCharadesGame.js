@@ -69,6 +69,10 @@ function ConnectTwitchChat() {
       document.getElementById("theWord").innerHTML = "Error: Cant connect";
     });
 
+    chat.on('*', message => {
+  console.log(message);
+})
+
   };
 
 function StartTimer(duration) {
