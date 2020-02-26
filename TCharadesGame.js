@@ -70,7 +70,12 @@ function ConnectTwitchChat() {
     });
 
     chat.on('*', message => {
-  console.log(message);
+  if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
+    console.log("yo check this out");
+  }else{
+    console.log("not the one")
+  }
+
 })
 
   };
