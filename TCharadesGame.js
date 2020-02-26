@@ -31,13 +31,7 @@ function StartGame() {
 function ConnectTwitchChat() {
   const channel = "halfbloood";
 
-  if (isConnected) {
-    chat.reconnect().then(() => {
-      chat.part(connectedChannel);
-      chat.join(channel);
-      connectedChannel = channel;
-    })
-  } else {
+  
 
    // const handleMessage = message => {
     //    if (message.event === "PRIVMSG") {
@@ -68,15 +62,14 @@ function ConnectTwitchChat() {
        // NextRound();
       }).catch(function(err) {
         console.log(err);
-        document.getElementById("wb_error_msg_box").innerHTML = "Error: Edgar fucked up";
+        document.getElementById("theWord").innerHTML = "Error: Edgar fucked up";
       })
     }).catch(function(err) {
       console.log(err);
-      document.getElementById("wb_error_msg_box").innerHTML = "Error: Cant connect";
+      document.getElementById("theWord").innerHTML = "Error: Cant connect";
     });
 
-  }
-};
+  };
 
 function StartTimer(duration) {
   var timer = duration,
