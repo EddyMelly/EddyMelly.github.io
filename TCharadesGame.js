@@ -50,7 +50,7 @@ function ConnectTwitchChat() {
 
      // }
       // Listen for all events.
-    chat.on(TwitchJs.Chat.Events.ALL, handleMessage);
+    //chat.on(TwitchJs.Chat.Events.ALL, handleMessage);
 
     // Connect ...
     chat.connect().then(() => {
