@@ -119,6 +119,7 @@ function WordGuessed() {
 }
 
 function TestSounds(){
+  console.log("working");
 var sound1 = document.getElementById("kids_hooray");
 var sound2 = document.getElementById("lose_s");
 var sound3 = document.getElementById("btn_click");
