@@ -26,6 +26,10 @@ function StartGame() {
   ConnectTwitchChat();
 };
 
+function DisconnectTwitchChat(){
+chat.disconnect();
+  };
+
 
 
 function ConnectTwitchChat() {
@@ -72,6 +76,8 @@ function ConnectTwitchChat() {
     chat.on('*', message => {
   if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
     console.log("yo check this out");
+    StartTimer();
+    TestSounds();
   }else{
     console.log("not the one")
   }
