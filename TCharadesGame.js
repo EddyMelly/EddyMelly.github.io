@@ -15,9 +15,6 @@ var pop_window = null;
 
 
 
-
-
-
 const {
   chat,
   api
@@ -42,22 +39,22 @@ function ConnectTwitchChat() {
     })
   } else {
 
-    const handleMessage = message => {
-        if (message.event === "PRIVMSG") {
-          if (!wordFound && message.message != null) {
-            if (!gameFailed) {
-              var clean_message = DOMPurify.sanitize(message.message, {ALLOWED_TAGS: ['b']})
-              document.getElementById("wb_output").innerHTML = ("<strong style=\"color:" + message.tags["color"] + "; \">" + message.username + "</strong>: " + clean_message);
-              var regex_f_p = document.getElementById("first_word_detect_box").checked ? "^" : "";
-              if (message.message.toLowerCase().search("\\b" + regex_f_p + chosenWord + "\\b") != -1) {
-                WordGuessed();
-              }
+   // const handleMessage = message => {
+    //    if (message.event === "PRIVMSG") {
+    //      if (!wordFound && message.message != null) {
+     //       if (!gameFailed) {
+     //         var clean_message = DOMPurify.sanitize(message.message, {ALLOWED_TAGS: ['b']})
+    //          document.getElementById("wb_output").innerHTML = ("<strong style=\"color:" + message.tags["color"] + "; \">" + message.username + "</strong>: " + clean_message);
+    //          var regex_f_p = document.getElementById("first_word_detect_box").checked ? "^" : "";
+     //         if (message.message.toLowerCase().search("\\b" + regex_f_p + chosenWord + "\\b") != -1) {
+    //            WordGuessed();
+      //        }
 
-            }
-          }
-        };
+     //       }
+    //      }
+    //    };
 
-      }
+     // }
       // Listen for all events.
     chat.on(TwitchJs.Chat.Events.ALL, handleMessage);
 
@@ -66,7 +63,8 @@ function ConnectTwitchChat() {
       chat.join(channel).then(() => {
         isConnected = true;
         connectedChannel = channel;
-        NextRound();
+        document.getElementById("wb_output").innerHTML = "connected";
+       // NextRound();
       }).catch(function(err) {
         console.log(err);
         document.getElementById("wb_error_msg_box").innerHTML = "Error: Edgar fucked up";
@@ -108,9 +106,6 @@ function StopTimer() {
 
 
 
-
-
-
 function WordGuessed() {
   console.log("WORD GUEESED!");
   wordFound = true;
@@ -137,19 +132,7 @@ winSound.play();
 
 
 
-function WordNotGuessed() {
-  if (isConnected && !gameFailed && !wordFound) {
-    console.log("WORD NOT GUESSED");
-    gameFailed = true;
-    document.getElementById("timer_ouput").style.color = "red";
-    document.getElementById("wb_output").innerHTML = "...";
-    var winSound = document.getElementById("lose_s");
-    winSound.volume = 0.9;
-    winSound.play();
 
-    GameEnd();
-  }
-}
 
 
 
