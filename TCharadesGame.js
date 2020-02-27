@@ -50,16 +50,21 @@ function ConnectTwitchChat() {
 
       console.log(message.tags["customRewardId"]);
 
-  //if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
-   // console.log("yo check this out");
-    //TestSounds();
-    //var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
-    //document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
+  if(message.tags["customRewardId"] ==="99c5af66-501a-43cf-b71e-903dadbc0f31" ){
+    console.log("Scav sound");
+    ScavSounds();
+    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
+    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
     
 
-  //}else{
-    //console.log("not the one")
-  //}
+  }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
+   console.log("Grenade sound");
+    GrenadeSounds();
+    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
+    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
+  }
+  else(
+    console.log(message.message))
 
 })
 
@@ -96,8 +101,8 @@ var sound21 = document.getElementById("scav18");
 var sound22 = document.getElementById("scav19");
 var sound23 = document.getElementById("scav20");
 var sound24 = document.getElementById("scav21");
-var sounds = new Array(sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12, sound13, sound14, sound15, sound16, sound17, sound18, sound19, sound20, sound21, sound22, sound23, sound24);
-var randomSound = Math.floor(Math.random() * 23);
+var sounds = new Array(sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12, sound13, sound14, sound15, sound16, sound17, sound18, sound19, sound20, sound21, sound22, sound23, sound24);
+var randomSound = Math.floor(Math.random() * 20);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
@@ -112,6 +117,7 @@ var sound2 = document.getElementById("grenade2");
 var sound3 = document.getElementById("grenade3");
 
 var sounds = new Array(sound1, sound2, sound3);
+var randomSound = Math.floor(Math.random() * 2);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
