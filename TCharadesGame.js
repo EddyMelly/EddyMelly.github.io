@@ -1,18 +1,6 @@
-const MAX_REPEAT_OF_WORDS = 30;
 
 var isConnected = false;
 var connectedChannel = ""
-
-var display_ChosenWord = "--Game Has Not Started--";
-var chosenWord = "";
-var image_ChosenWord = "";
-var wordFound = false;
-var intervalTimer = null;
-var gameFailed;
-var list_of_categories = [];
-
-var pop_window = null;
-
 
 
 const {
@@ -28,6 +16,7 @@ function StartGame() {
 
 function DisconnectTwitchChat(){
 chat.disconnect();
+document.getElementById("status").innerHTML = "disconnected";
   };
 
 
@@ -37,47 +26,33 @@ function ConnectTwitchChat() {
 
   
 
-   // const handleMessage = message => {
-    //    if (message.event === "PRIVMSG") {
-    //      if (!wordFound && message.message != null) {
-     //       if (!gameFailed) {
-     //         var clean_message = DOMPurify.sanitize(message.message, {ALLOWED_TAGS: ['b']})
-    //          document.getElementById("wb_output").innerHTML = ("<strong style=\"color:" + message.tags["color"] + "; \">" + message.username + "</strong>: " + clean_message);
-    //          var regex_f_p = document.getElementById("first_word_detect_box").checked ? "^" : "";
-     //         if (message.message.toLowerCase().search("\\b" + regex_f_p + chosenWord + "\\b") != -1) {
-    //            WordGuessed();
-      //        }
 
-     //       }
-    //      }
-    //    };
-
-     // }
-      // Listen for all events.
-    //chat.on(TwitchJs.Chat.Events.ALL, handleMessage);
-
-    // Connect ...
+    // Connect to Twitch 
+    
     chat.connect().then(() => {
       chat.join(channel).then(() => {
         isConnected = true;
         connectedChannel = channel;
-        document.getElementById("theWord").innerHTML = "connected";
+        document.getElementById("status").innerHTML = "connected";
         console.log("connected boy updated2");
-       // NextRound();
+        document.getElementById("connect_btn").style.background = "#32CD32"
+      
       }).catch(function(err) {
         console.log(err);
-        document.getElementById("theWord").innerHTML = "Error: Edgar fucked up";
+        document.getElementById("status").innerHTML = "Error: Edgar fucked up";
       })
     }).catch(function(err) {
       console.log(err);
-      document.getElementById("theWord").innerHTML = "Error: Cant connect";
+      document.getElementById("status").innerHTML = "Error: Cant connect";
     });
 
     chat.on('*', message => {
   if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
     console.log("yo check this out");
-    StartTimer();
+    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
+    document.getElementById("wb_output").innerHTML = ("<strong style=\"color:" + message.tags["color"] + "; \">" + message.username + "</strong>: " + clean_message);
     TestSounds();
+
   }else{
     console.log("not the one")
   }
@@ -86,59 +61,46 @@ function ConnectTwitchChat() {
 
   };
 
-function StartTimer(duration) {
-  var timer = duration,
-    minutes, seconds;
-
-  var runner = function() {
-    minutes = parseInt(timer / 60, 10)
-    seconds = parseInt(timer % 60, 10);
-    // console.log(pop_window);
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    document.getElementById("timer_ouput").innerHTML = minutes + ":" + seconds;
-
-    if (--timer < 0) {
-      timer = 0;
-      WordNotGuessed();
-    }
-  };
-  runner();
-  intervalTimer = setInterval(runner, 1000);
-}
-
-function StopTimer() {
-  if (intervalTimer != null) {
-    clearInterval(intervalTimer);
-  }
-}
 
 
 
-function WordGuessed() {
-  console.log("WORD GUEESED!");
-  wordFound = true;
-  document.getElementById("timer_ouput").style.color = "green";
-  var winSound = document.getElementById("kids_hooray");
-  winSound.volume = 0.5;
-  
-  winSound.play();
-  GameEnd();
-}
+
+
+
 
 function TestSounds(){
-  console.log("working");
-var sound1 = document.getElementById("kids_hooray");
-var sound2 = document.getElementById("lose_s");
-var sound3 = document.getElementById("btn_click");
-
-var sounds = new Array(sound1, sound2, sound3);
-var randomSound = Math.floor(Math.random() * 3);
+  console.log("working2");
+var sound1 = document.getElementById("grenade1");
+var sound2 = document.getElementById("grenade2");
+var sound3 = document.getElementById("grenade3");
+var sound4 = document.getElementById("scav1");
+var sound5 = document.getElementById("scav2");
+var sound6 = document.getElementById("scav3");
+var sound7 = document.getElementById("scav4");
+var sound8 = document.getElementById("scav5");
+var sound9 = document.getElementById("scav6");
+var sound10 = document.getElementById("scav7");
+var sound11 = document.getElementById("scav8");
+var sound12 = document.getElementById("scav9");
+var sound13 = document.getElementById("scav10");
+var sound14 = document.getElementById("scav11");
+var sound15 = document.getElementById("scav12");
+var sound16 = document.getElementById("scav13");
+var sound17 = document.getElementById("scav14");
+var sound18 = document.getElementById("scav15");
+var sound19 = document.getElementById("scav16");
+var sound20 = document.getElementById("scav17");
+var sound21 = document.getElementById("scav18");
+var sound22 = document.getElementById("scav19");
+var sound23 = document.getElementById("scav20");
+var sound24 = document.getElementById("scav21");
+var sounds = new Array(sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12, sound13, sound14, sound15, sound16, sound17, sound18, sound19, sound20, sound21, sound22, sound23, sound24);
+var randomSound = Math.floor(Math.random() * 23);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
 winSound.play();
-}
+};
 
 
 

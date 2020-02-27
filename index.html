@@ -6,26 +6,100 @@
     <title>HalfbloodNoises</title>
     <meta name="description" content="Scav noises for Halfblood Stream">
     <meta name="author" content="EdgarMelons">
-    
     <link href="index.css" rel="stylesheet">
-    
-	
-    
-   
     <script src="https://unpkg.com/twitch-js@2.0.0-beta.33/dist/twitch.js"></script>
-    
     <script src="TCharadesGame.js"></script>
 
-    <audio id="kids_hooray">
-  <source src="sounds/children-hooray.wav" type="audio/wav"> 
+    <audio id="grenade1">
+  <source src="sounds/grenade1.wav" type="audio/wav"> 
 </audio>
 
-    <audio id="btn_click">
-  <source src="sounds/button_click.wav" type="audio/wav"> 
+    <audio id="grenade2">
+  <source src="sounds/grenade2.wav" type="audio/wav"> 
 </audio>
 
-    <audio id="lose_s">
-  <source src="sounds/loseSound.wav" type="audio/wav"> 
+    <audio id="grenade3">
+  <source src="sounds/grenade3.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav1">
+  <source src="sounds/scav1.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav2">
+  <source src="sounds/scav2.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav3">
+  <source src="sounds/scav3.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav4">
+  <source src="sounds/scav4.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav5">
+  <source src="sounds/scav5.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav6">
+  <source src="sounds/scav6.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav7">
+  <source src="sounds/scav7.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav9">
+  <source src="sounds/scav9.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav10">
+  <source src="sounds/scav10.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav11">
+  <source src="sounds/scav11.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav12">
+  <source src="sounds/scav12.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav13">
+  <source src="sounds/scav13.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav14">
+  <source src="sounds/scav14.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav15">
+  <source src="sounds/scav15.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav16">
+  <source src="sounds/scav16.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav17">
+  <source src="sounds/scav17.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav18">
+  <source src="sounds/scav18.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav19">
+  <source src="sounds/scav19.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav20">
+  <source src="sounds/scav20.wav" type="audio/wav"> 
+</audio>
+
+<audio id="scav21">
+  <source src="sounds/scav21.wav" type="audio/wav"> 
 </audio>
 
    
@@ -37,11 +111,12 @@
         <div id="wb_output" style="position:absolute;left:305px;top:248px;width:595px;height:199px;text-align:center;z-index:43;" class="ChatOuput">
             &nbsp;</div>
         
-        <input type="submit" id="word_hidder_btn" onclick="ConnectTwitchChat();" name="" value="Connect" style="position:absolute;left:540px;top:587px;width:121px;height:30px;z-index:45;""">
+        <input type="submit" id="test_btn" onclick="TestSounds();" name="" value="Test Button" style="position:absolute;left:540px;top:587px;width:121px;height:30px;z-index:45;""">
 
-        <input type="submit" id="word_hidder_btn2" onclick="DisconnectTwitchChat();" name="" value="Connect" style="position:absolute;left:540px;top:780px;width:121px;height:30px;z-index:45;""">
-        <label for="" id="timer_ouput" style="position:absolute;left:517px;top:449px;width:164px;height:72px;line-height:72px;z-index:46;">00:00</label>
-        <label for="" id="theWord" style="position:absolute;left:372px;top:515px;width:455px;height:62px;line-height:62px;z-index:47;">???</label>
+        <input type="submit" id="connect_btn" onclick="ConnectTwitchChat();" name="" value="Connect" style="position:absolute;left:540px;top:680px;width:121px;height:30px;z-index:45;""">
+
+        <input type="submit" id="disconnect" onclick="DisconnectTwitchChat();" name="" value="Disonnect" style="position:absolute;left:540px;top:780px;width:121px;height:30px;z-index:45;""">
+        <label for="" id="status" style="position:absolute;left:372px;top:515px;width:455px;height:62px;line-height:62px;z-index:47;">???</label>
         
     </div>
     <div id="PageHeader1" style="position:absolute;text-align:left;left:0px;top:0px;width:100%;height:92px;z-index:7777;">
