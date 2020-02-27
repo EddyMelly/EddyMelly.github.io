@@ -53,27 +53,16 @@ function ConnectTwitchChat() {
   if(message.tags["customRewardId"] ==="99c5af66-501a-43cf-b71e-903dadbc0f31" ){
     console.log("Scav sound");
     ScavSounds();
-    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
-    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
     
-
   }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
    console.log("Grenade sound");
     GrenadeSounds();
-    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
-    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
   }
-  else(
-    console.log(message.message))
+  else{
+  }
 
-})
-
+  })
   };
-
-
-
-
-
 
 
 
@@ -117,7 +106,7 @@ var sound2 = document.getElementById("grenade2");
 var sound3 = document.getElementById("grenade3");
 
 var sounds = new Array(sound1, sound2, sound3);
-var randomSound = Math.floor(Math.random() * 2);
+var randomSound = Math.floor(Math.random() * 3);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
