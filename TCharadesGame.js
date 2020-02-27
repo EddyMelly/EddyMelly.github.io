@@ -47,16 +47,19 @@ function ConnectTwitchChat() {
     });
 
     chat.on('*', message => {
-  if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
-    console.log("yo check this out");
-    TestSounds();
-    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
-    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
+
+      console.log(message.message);
+
+  //if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
+   // console.log("yo check this out");
+    //TestSounds();
+    //var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
+    //document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
     
 
-  }else{
-    console.log("not the one")
-  }
+  //}else{
+    //console.log("not the one")
+  //}
 
 })
 
@@ -69,11 +72,9 @@ function ConnectTwitchChat() {
 
 
 
-function TestSounds(){
+function ScavSounds(){
   console.log("working2");
-var sound1 = document.getElementById("grenade1");
-var sound2 = document.getElementById("grenade2");
-var sound3 = document.getElementById("grenade3");
+
 var sound4 = document.getElementById("scav1");
 var sound5 = document.getElementById("scav2");
 var sound6 = document.getElementById("scav3");
@@ -102,6 +103,20 @@ console.log(winSound);
 winSound.volume = 0.5;
 winSound.play();
 };
+
+
+
+function GrenadeSounds(){
+  var sound1 = document.getElementById("grenade1");
+var sound2 = document.getElementById("grenade2");
+var sound3 = document.getElementById("grenade3");
+
+var sounds = new Array(sound1, sound2, sound3);
+var winSound = sounds[randomSound];
+console.log(winSound);
+winSound.volume = 0.5;
+winSound.play();
+}
 
 
 
