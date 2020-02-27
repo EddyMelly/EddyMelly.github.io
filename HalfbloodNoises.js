@@ -10,13 +10,11 @@ const {
   log: { enabled: false },
 });
 
-function StartGame() {
-  ConnectTwitchChat();
-};
 
 function DisconnectTwitchChat(){
 chat.disconnect();
 document.getElementById("status").innerHTML = "disconnected";
+document.getElementById("status").style.color ="red";
   };
 
 
@@ -34,21 +32,24 @@ function ConnectTwitchChat() {
         isConnected = true;
         connectedChannel = channel;
         document.getElementById("status").innerHTML = "connected";
+        document.getElementById("status").style.color ="green";
         console.log("connected boy updated2");
-        document.getElementById("connect_btn").style.background = "#32CD32"
+       // document.getElementById("connect_btn").style.background = "#32CD32"
       
       }).catch(function(err) {
         console.log(err);
         document.getElementById("status").innerHTML = "Error: Edgar fucked up";
+        document.getElementById("status").style.color ="red";
       })
     }).catch(function(err) {
       console.log(err);
       document.getElementById("status").innerHTML = "Error: Cant connect";
+      document.getElementById("status").style.color ="red";
     });
 
     chat.on('*', message => {
 
-      console.log(message.tags["customRewardId"]);
+     // console.log(message.tags["customRewardId"]);
 
   if(message.tags["customRewardId"] ==="99c5af66-501a-43cf-b71e-903dadbc0f31" ){
     console.log("Scav sound");
@@ -57,6 +58,10 @@ function ConnectTwitchChat() {
   }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
    console.log("Grenade sound");
     GrenadeSounds();
+  }
+  else if(message.tags["customRewardId"] ==="0c0e8980-291f-4145-8155-5ea0d2a80f9b"){
+    console.log("Raider sound");
+    RaiderSounds();
   }
   else{
   }
@@ -92,6 +97,23 @@ var sound20 = document.getElementById("scav20");
 var sound21 = document.getElementById("scav21");
 var sounds = new Array(sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9, sound10, sound11, sound12, sound13, sound14, sound15, sound16, sound17, sound18, sound19, sound20, sound21);
 var randomSound = Math.floor(Math.random() * 21);
+var winSound = sounds[randomSound];
+console.log(winSound);
+winSound.volume = 0.5;
+winSound.play();
+};
+
+function RaiderSounds(){
+  console.log("raider working");
+ var sound1 = document.getElementById("raider1");
+var sound2 = document.getElementById("raider2");
+var sound3 = document.getElementById("raider3");
+var sound4 = document.getElementById("raider4");
+var sound5 = document.getElementById("raider5");
+
+
+var sounds = new Array(sound1, sound2, sound3, sound4, sound5);
+var randomSound = Math.floor(Math.random() * 5);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
