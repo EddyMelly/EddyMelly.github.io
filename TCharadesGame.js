@@ -49,9 +49,10 @@ function ConnectTwitchChat() {
     chat.on('*', message => {
   if(message.tags["customRewardId"] ==="f5929bb4-198e-43e2-9542-da16ef3a3301" ){
     console.log("yo check this out");
-    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
-    document.getElementById("wb_output").innerHTML = ("<strong style=\"color:" + message.tags["color"] + "; \">" + message.username + "</strong>: " + clean_message);
     TestSounds();
+    var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] })
+    document.getElementById("wb_output").innerHTML = (message.username + "</strong>: " + clean_message);
+    
 
   }else{
     console.log("not the one")
