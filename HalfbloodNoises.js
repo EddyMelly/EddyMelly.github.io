@@ -57,7 +57,7 @@ function ConnectTwitchChat() {
     
   }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
    console.log("Grenade sound");
-    GrenadeSounds();
+    GrenadeSoundNew();
   }
   else if(message.tags["customRewardId"] ==="0c0e8980-291f-4145-8155-5ea0d2a80f9b"){
     console.log("Raider sound");
@@ -134,6 +134,16 @@ console.log(winSound);
 winSound.volume = 0.5;
 winSound.play();
 }
+
+function GrenadeSoundNew(){
+var winSound = document.getElementById("grenade4");
+
+console.log(winSound);
+winSound.volume = 0.5;
+winSound.play();
+}
+
+
 
 
 
