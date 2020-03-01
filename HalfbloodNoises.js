@@ -50,6 +50,7 @@ function ConnectTwitchChat() {
     chat.on('*', message => {
 
      // console.log(message.tags["customRewardId"]);
+   
 
   if(message.tags["customRewardId"] ==="99c5af66-501a-43cf-b71e-903dadbc0f31" ){
     console.log("Scav sound");
@@ -57,7 +58,7 @@ function ConnectTwitchChat() {
     
   }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
    console.log("Grenade sound");
-    GrenadeSounds();
+    GrenadeSoundNew();
   }
   else if(message.tags["customRewardId"] ==="0c0e8980-291f-4145-8155-5ea0d2a80f9b"){
     console.log("Raider sound");
@@ -136,8 +137,15 @@ winSound.play();
 }
 
 function GrenadeSoundNew(){
-var winSound = document.getElementById("grenade4");
+var sound1 = document.getElementById("grenade4");
+var sound2 = document.getElementById("grenade5");
+var sound3 = document.getElementById("grenade6");
+var sound4 = document.getElementById("grenade7");
+var sound5 = document.getElementById("grenade8");
 
+var sounds = new Array(sound1, sound2, sound3, sound4, sound5);
+var randomSound = Math.floor(Math.random() * 5);
+var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
 winSound.play();
