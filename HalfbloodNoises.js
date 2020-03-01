@@ -142,9 +142,13 @@ var sound2 = document.getElementById("grenade5");
 var sound3 = document.getElementById("grenade6");
 var sound4 = document.getElementById("grenade7");
 var sound5 = document.getElementById("grenade8");
+var sound6 = document.getElementById("grenade9");
+var sound7 = document.getElementById("grenade10");
+var sound8 = document.getElementById("grenade11");
+var sound9 = document.getElementById("grenade12");
 
-var sounds = new Array(sound1, sound2, sound3, sound4, sound5);
-var randomSound = Math.floor(Math.random() * 5);
+var sounds = new Array(sound1, sound2, sound3, sound4, sound5, sound6, sound7, sound8, sound9);
+var randomSound = Math.floor(Math.random() * 9);
 var winSound = sounds[randomSound];
 console.log(winSound);
 winSound.volume = 0.5;
