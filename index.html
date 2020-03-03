@@ -3,12 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>HalfbloodNoises v4</title>
+    <title>HalfbloodNoises v5</title>
     <meta name="description" content="Scav noises for Halfblood Stream">
     <meta name="author" content="EdgarMelons">
     <link href="index.css" rel="stylesheet">
     <script src="https://unpkg.com/twitch-js@2.0.0-beta.33/dist/twitch.js"></script>
     <script src="HalfbloodNoises.js"></script>
+    <script src="purify.min.js"></script>
 
     <audio id="grenade1">
   <source src="sounds/grenade1.wav" type="audio/wav"> 
@@ -158,6 +159,10 @@
   <source src="sounds/raider5.wav" type="audio/wav"> 
 </audio>
 
+<audio id="raider6">
+  <source src="sounds/raider6.wav" type="audio/wav"> 
+</audio>
+
    
 </head>
 
@@ -166,7 +171,7 @@
         
         
         <input type="submit" id="test_btn" onclick="ScavSounds();" name="" value="Test Scav" style="position:absolute;left:410px;top:300px;width:121px;height:30px;z-index:45;""">
-        <input type="submit" id="test_btn" onclick="GrenadeSounds();" name="" value="Test Grenade" style="position:absolute;left:540px;top:300px;width:121px;height:30px;z-index:45;""">
+        <input type="submit" id="test_btn" onclick="GrenadeSoundNew();" name="" value="Test Grenade" style="position:absolute;left:540px;top:300px;width:121px;height:30px;z-index:45;""">
         <input type="submit" id="test_btn" onclick="RaiderSounds();" name="" value="Test Raider" style="position:absolute;left:670px;top:300px;width:121px;height:30px;z-index:45;""">
 
         <input type="submit" id="connect_btn" onclick="ConnectTwitchChat();" name="" value="Connect" style="position:absolute;left:540px;top:380px;width:121px;height:30px;z-index:45;""">
