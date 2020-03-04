@@ -57,7 +57,7 @@ function ConnectTwitchChat() {
     console.log(clean_message);
     ScavSounds(clean_message);
     
-  }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87" || (message.username == "edgarmelons")){
+  }else if(message.tags["customRewardId"] ==="feff768e-40e6-4888-9fcb-5ee7ad446e87"){
    console.log("Grenade sound");
     GrenadeSoundNew(clean_message);
   }
