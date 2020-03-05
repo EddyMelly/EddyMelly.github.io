@@ -79,33 +79,75 @@ function ScavSounds(passedMessage){
 
 var scavList = new Array;
 scavList = GatherElements(1,21,"scav");
+var surpriseChance = Math.random() >= 0.5;
 
 
 if(passedMessage =="left"){
   var sounds = new Array(scavList[1], scavList[8], scavList[13], scavList[16]);
   var randomSound = Math.floor(Math.random() * 4);
   PlaySound(sounds[randomSound]);
+  if(surpriseChance === true){
+    SurpriseSound("left");
+  }
 }
 else if(passedMessage =="leftahead"){
   var sounds = new Array(scavList[4], scavList[5], scavList[7], scavList[10], scavList[15], scavList[17], scavList[19]);
    var randomSound = Math.floor(Math.random() * 7);
   PlaySound(sounds[randomSound]);
+  if(surpriseChance === true){
+    SurpriseSound("ahead");
+  }
 }
 else if(passedMessage =="rightahead"){
   var sounds = new Array(scavList[0], scavList[12], scavList[14], scavList[20]);
   var randomSound = Math.floor(Math.random() * 4);
  PlaySound(sounds[randomSound]);
+ if(surpriseChance === true){
+    SurpriseSound("ahead");
+  }
 }
 else if(passedMessage == "right"){
   var sounds = new Array(scavList[2], scavList[3], scavList[6], scavList[9], scavList[11], scavList[18]);
   var randomSound = Math.floor(Math.random() * 6); 
   PlaySound(sounds[randomSound]);
+  if(surpriseChance === true){
+    SurpriseSound("right");
+  }
 }
 else{
 var randomSound = Math.floor(Math.random() * 21);
 PlaySound(scavList[randomSound]);
 }
 };
+
+function SurpriseSound(direction){
+  
+if(direction === "left"){
+  var surpriseList = new Array;
+  surpriseList = GatherElements(1,4,"surpriseleft");
+  var randomSound = Math.floor(Math.random() * 4);
+  setTimeout(function(){
+    PlaySound(surpriseList[randomSound])
+    }, 1000);
+}else if(direction ==="right"){
+  var surpriseList = new Array;
+  surpriseList = GatherElements(1,4,"surpriseright");
+  var randomSound = Math.floor(Math.random() * 4);
+  setTimeout(function(){
+    PlaySound(surpriseList[randomSound])
+    }, 1000);
+}else{
+   var surpriseList = new Array;
+  surpriseList = GatherElements(1,4,"surprise");
+  var randomSound = Math.floor(Math.random() * 4);
+  setTimeout(function(){
+    PlaySound(surpriseList[randomSound])
+    }, 1000);
+}
+
+};
+
+
 
 function RaiderSounds(passedMessage){
 var raiderList = new Array;
