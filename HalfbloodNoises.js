@@ -219,7 +219,7 @@ else if(passedMessage == "right"){
 function PlaySound(passedSound){
   var winSound = passedSound;
   console.log(winSound);
-  winSound.volume = 0.4;
+  winSound.volume = 0.5;
   winSound.play();
 };
 
