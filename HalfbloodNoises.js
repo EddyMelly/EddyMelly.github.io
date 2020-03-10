@@ -94,43 +94,47 @@ function JohnWick(instruction){
 };
 
 
-function ScavSounds(passedMessage){
+function ScavSounds(passedMessageRaw){
 
 var scavList = new Array;
 scavList = GatherElements(1,21,"scav");
 var surpriseChance = Math.random() >= 0.5;
 
+if (passedMessageRaw !== undefined) {
 
-if(passedMessage =="left"){
-  var sounds = new Array(scavList[1], scavList[8], scavList[13], scavList[16]);
-  var randomSound = Math.floor(Math.random() * 4);
-  PlaySound(sounds[randomSound]);
-  if(surpriseChance === true){
-    SurpriseSound("left");
-  }
-}
-else if(passedMessage =="leftahead"){
-  var sounds = new Array(scavList[4], scavList[5], scavList[7], scavList[10], scavList[15], scavList[17], scavList[19]);
-   var randomSound = Math.floor(Math.random() * 7);
-  PlaySound(sounds[randomSound]);
-  if(surpriseChance === true){
-    SurpriseSound("ahead");
-  }
-}
-else if(passedMessage =="rightahead"){
-  var sounds = new Array(scavList[0], scavList[12], scavList[14], scavList[20]);
-  var randomSound = Math.floor(Math.random() * 4);
- PlaySound(sounds[randomSound]);
- if(surpriseChance === true){
-    SurpriseSound("ahead");
-  }
-}
-else if(passedMessage == "right"){
-  var sounds = new Array(scavList[2], scavList[3], scavList[6], scavList[9], scavList[11], scavList[18]);
-  var randomSound = Math.floor(Math.random() * 6); 
-  PlaySound(sounds[randomSound]);
-  if(surpriseChance === true){
-    SurpriseSound("right");
+  passedMessage = passedMessageRaw.toLowerCase();
+
+  if(passedMessage.includes("leftahead")){
+    var sounds = new Array(scavList[4], scavList[5], scavList[7], scavList[10], scavList[15], scavList[17], scavList[19]);
+    var randomSound = Math.floor(Math.random() * 7);
+    PlaySound(sounds[randomSound]);
+    if(surpriseChance === true){
+      SurpriseSound("ahead");
+      }
+  }else if(passedMessage.includes("rightahead")){
+    var sounds = new Array(scavList[0], scavList[12], scavList[14], scavList[20]);
+    var randomSound = Math.floor(Math.random() * 4);
+    PlaySound(sounds[randomSound]);
+    if(surpriseChance === true){
+      SurpriseSound("ahead");
+      }
+  }else if(passedMessage.includes("right")){
+    var sounds = new Array(scavList[2], scavList[3], scavList[6], scavList[9], scavList[11], scavList[18]);
+    var randomSound = Math.floor(Math.random() * 6); 
+    PlaySound(sounds[randomSound]);
+    if(surpriseChance === true){
+      SurpriseSound("right");
+    }
+  }else if(passedMessage.includes("left")){
+    var sounds = new Array(scavList[1], scavList[8], scavList[13], scavList[16]);
+    var randomSound = Math.floor(Math.random() * 4);
+    PlaySound(sounds[randomSound]);
+    if(surpriseChance === true){
+      SurpriseSound("left");
+    }
+  }else{
+  var randomSound = Math.floor(Math.random() * 21);
+  PlaySound(scavList[randomSound]);
   }
 }
 else{
@@ -138,6 +142,8 @@ var randomSound = Math.floor(Math.random() * 21);
 PlaySound(scavList[randomSound]);
 }
 };
+
+
 
 function SurpriseSound(direction){
   
@@ -168,30 +174,39 @@ if(direction === "left"){
 
 
 
-function RaiderSounds(passedMessage){
+function RaiderSounds(passedMessageRaw){
 var raiderList = new Array;
 raiderList = GatherElements(1,6,"raider");
 
-if(passedMessage =="left"){
-  var sounds = new Array(raiderList[0], raiderList[4]);
-  var randomSound = Math.floor(Math.random() * 2);
-  PlaySound(sounds[randomSound]);
-}
-else if(passedMessage =="right"){
-  var sounds = new Array(raiderList[1], raiderList[3]);
-  var randomSound = Math.floor(Math.random() * 2);
-  PlaySound(sounds[randomSound]);
-}
-else if(passedMessage =="leftahead"){ 
-  PlaySound(raiderList[2]);
-}
-else if(passedMessage == "rightahead"){
-  PlaySound(raiderList[5]);
+if (passedMessageRaw !== undefined) {
+
+  passedMessage = passedMessageRaw.toLowerCase();
+
+
+  if(passedMessage.includes("leftahead")){
+    PlaySound(raiderList[2]);
+  }
+  else if(passedMessage.includes("rightahead")){
+    PlaySound(raiderList[5]);
+  }
+  else if(passedMessage.includes("right")){
+    var sounds = new Array(raiderList[1], raiderList[3]);
+    var randomSound = Math.floor(Math.random() * 2);
+    PlaySound(sounds[randomSound]);
+  }
+  else if(passedMessage.includes("left")){
+    var sounds = new Array(raiderList[0], raiderList[4]);
+    var randomSound = Math.floor(Math.random() * 2);
+    PlaySound(sounds[randomSound]);
+  }else{
+    var randomSound = Math.floor(Math.random() * 6);
+    PlaySound(raiderList[randomSound]);
+  }
 }else{
-  
   var randomSound = Math.floor(Math.random() * 6);
   PlaySound(raiderList[randomSound]);
 }
+
 };
 
 
@@ -207,30 +222,38 @@ var sounds = new Array(grenadeList[0], grenadeList[2]);
 
 
 
-function GrenadeSoundNew(passedMessage){
+function GrenadeSoundNew(passedMessageRaw){
 
 var grenadeList = new Array;
 grenadeList = GatherElements(4,12,"grenade");
 
-if(passedMessage =="left"){
-  PlaySound(grenadeList[0]);
-}
-else if(passedMessage =="rightahead"){
-  PlaySound(grenadeList[2]);
-}
-else if(passedMessage =="leftahead"){ 
-  var sounds = new Array(grenadeList[3], grenadeList[5], grenadeList[8]);
-  var randomSound = Math.floor(Math.random() * 3);
-  PlaySound(sounds[randomSound]);
-}
-else if(passedMessage == "right"){
-  var sounds = new Array(grenadeList[1], grenadeList[4], grenadeList[6], grenadeList[7]);
-  var randomSound = Math.floor(Math.random() * 4);
-  PlaySound(sounds[randomSound]);
+if (passedMessageRaw !== undefined) {
+  passedMessage = passedMessageRaw.toLowerCase();
+
+  if(passedMessage.includes("rightahead")){
+    PlaySound(grenadeList[2]);
+  }
+  else if(passedMessage.includes("leftahead")){ 
+    var sounds = new Array(grenadeList[3], grenadeList[5], grenadeList[8]);
+    var randomSound = Math.floor(Math.random() * 3);
+    PlaySound(sounds[randomSound]);
+  }
+  else if(passedMessage.includes("left")){
+    PlaySound(grenadeList[0]);
+  }
+  else if(passedMessage.includes("right")){
+    var sounds = new Array(grenadeList[1], grenadeList[4], grenadeList[6], grenadeList[7]);
+    var randomSound = Math.floor(Math.random() * 4);
+    PlaySound(sounds[randomSound]);
+  }else{
+    var randomSound = Math.floor(Math.random() * 9);
+    PlaySound(grenadeList[randomSound]);
+  }
 }else{
   var randomSound = Math.floor(Math.random() * 9);
   PlaySound(grenadeList[randomSound]);
 }
+
 };
 
 
