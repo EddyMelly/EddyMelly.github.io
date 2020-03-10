@@ -45,6 +45,9 @@ function ConnectTwitchChat() {
     chat.on('*', message => {
     var clean_message = DOMPurify.sanitize(message.message, { ALLOWED_TAGS: ['b'] });
 
+    console.log(message.tags["customRewardId"]);
+    // eb39f201-6c10-4204-a5ae-1c2a3c81b505
+
     if((message.tags["customRewardId"] ==="99c5af66-501a-43cf-b71e-903dadbc0f31") ){
     console.log("Scav sound");
     console.log(clean_message);
@@ -57,6 +60,10 @@ function ConnectTwitchChat() {
     else if(message.tags["customRewardId"] ==="0c0e8980-291f-4145-8155-5ea0d2a80f9b" ){
     console.log("Raider sound");
     RaiderSounds(clean_message);
+    }
+    else if(message.tags["customRewardId"] === "eb39f201-6c10-4204-a5ae-1c2a3c81b505"){
+      console.log("WICK TIME");
+      JohnWick("play");
     }
     else{
     }
@@ -73,6 +80,18 @@ function GatherElements(passedIntStart, passedIntEnd, passedName){
 return elementList;
 };
 
+
+function JohnWick(instruction){
+  var winSound = document.getElementById("wick1");
+  if(instruction === "play"){
+    winSound.volume = 0.4;
+  winSound.play();
+  }else if(instruction ==="pause"){
+    winSound.pause()
+    winSound.currentTime =0;
+  }
+  else{}
+};
 
 
 function ScavSounds(passedMessage){
