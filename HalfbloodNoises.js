@@ -1,6 +1,7 @@
 
 var isConnected = false;
 var connectedChannel = ""
+var jonnyEntrance = false;
 
 
 const {
@@ -25,6 +26,7 @@ function ConnectTwitchChat() {
     chat.connect().then(() => {
       chat.join(channel).then(() => {
         isConnected = true;
+        jonnyEntrance = true;
         connectedChannel = channel;
         document.getElementById("status").innerHTML = "connected";
         document.getElementById("status").style.color ="green";
@@ -69,6 +71,10 @@ function ConnectTwitchChat() {
       console.log("greeting");
       Greeting();
     }
+    else if(message.tags["username"] === "jonnyhaull" && jonnyEntrance === true){
+      console.log("jonny");
+      jonny();
+    }
     else{
     }
   })
@@ -96,6 +102,13 @@ function JohnWick(instruction){
   }
   else{}
 };
+
+function jonny(){
+var intro = document.getElementById("jonnyintro");
+  intro.volume = 0.4;
+  intro.play();
+  jonnyEntrance = false;
+}
 
 
 function ScavSounds(passedMessageRaw){
