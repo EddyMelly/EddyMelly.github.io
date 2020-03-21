@@ -65,6 +65,10 @@ function ConnectTwitchChat() {
       console.log("WICK TIME");
       JohnWick("play");
     }
+    else if(message.tags["username"] === "edgarmelons" && clean_message === "shut up"){
+      console.log("greeting");
+      Greeting();
+    }
     else{
     }
   })
@@ -216,6 +220,13 @@ var grenadeList = new Array;
 grenadeList = GatherElements(1,3,"grenade");
 
 var sounds = new Array(grenadeList[0], grenadeList[2]);
+};
+
+
+function Greeting(){
+  var greeting = document.getElementById("shutup1");
+  greeting.volume = 0.4;
+  greeting.play();
 };
 
 
